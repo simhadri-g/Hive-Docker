@@ -20,3 +20,13 @@ beeline
 >>!connect jdbc:hive2://localhost:10001/
 ```
 Username and password is "hive"
+
+
+### To check the docker logs
+```aidl
+docker logs -t apache-hive-mr
+```
+### To stop 
+```aidl
+docker stop apache-hive-mr
+```

@@ -31,7 +31,7 @@ RUN ln -sf /hadoop-3.1.1 /hadoop
 #COPY ./apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /tmp or
 RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-1/apache-hive-4.0.0-alpha-1-bin.tar.gz
 RUN tar -xvzf apache-hive-4.0.0-alpha-1-bin.tar.gz
-RUN ln -sf /apache-hive-4.0.0-alpha-2-SNAPSHOT-bin /hive
+RUN ln -sf /apache-hive-4.0.0-alpha-1-bin /hive
 
 RUN  wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
 
