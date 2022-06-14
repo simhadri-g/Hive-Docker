@@ -34,9 +34,9 @@ echo 'export HADOOP_HOME="/hadoop"' >> ~/.bashrc
 
 
 rm /hadoop
-ln -sf /hadoop-3.1.1 /hadoop
+ln -sf /hadoop-3.3.1 /hadoop
 
-ln -sf /apache-hive-4.0.0-alpha-1-SNAPSHOT-bin /hive
+ln -sf /apache-hive-4.0.0-alpha-2-SNAPSHOT-bin /hive
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
 cp /conf/hdfs-site.xml /hadoop/etc/hadoop
@@ -45,12 +45,12 @@ cp /conf/mapred-site.xml /hadoop/etc/hadoop
 cp /conf/yarn-site.xml /hadoop/etc/hadoop
 cp /conf/hive-site.xml /hive/conf/
 
-cp /mysql-connector-java-8.0.29.jar /hive/lib
+cp /mysql-connector-java-8.0.28.jar /hive/lib
 
 gprn "set up mysql"
 sudo service mysql start
 
-# Set root password 
+# Set root password
 mysql -uroot -e "set password = PASSWORD('root');"
 mysql -uroot -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root';"
 mysql -uroot -e "CREATE USER 'hive'@'localhost' IDENTIFIED BY 'hive';"
@@ -77,7 +77,7 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-1
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-2
 
 gprn "Start HMS server"
 hive/bin/hive --service metastore -p  10000 &

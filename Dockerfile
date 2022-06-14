@@ -14,6 +14,7 @@ RUN sudo apt-get -y install software-properties-common
 RUN sudo add-apt-repository ppa:openjdk-r/ppa
 RUN sudo apt-get update
 
+
 RUN apt-get -y install openjdk-8-jdk 
 RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/ /usr/lib/jvm/java-1.8.0
 RUN ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64/ /usr/lib/jvm/java-1.7.0
@@ -22,19 +23,19 @@ RUN apt -y install vim
 RUN apt -y install wget tar sudo rsync
 RUN sudo apt-get update
 RUN sudo apt-get -y install apache2
+RUN sudo apt-get -y install tree
 
-RUN wget https://archive.apache.org/dist/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz
-RUN tar -xvzf hadoop-3.1.1.tar.gz
-RUN ln -sf /hadoop-3.1.1 /hadoop
+RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
+RUN tar -xvzf hadoop-3.3.1.tar.gz
+RUN ln -sf /hadoop-3.3.1 /hadoop
 
 # replace the path here for hive
-#COPY ./apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /tmp or
-RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-1/apache-hive-4.0.0-alpha-1-bin.tar.gz
-RUN tar -xvzf apache-hive-4.0.0-alpha-1-bin.tar.gz
-RUN ln -sf /apache-hive-4.0.0-alpha-1-bin /hive
+COPY ./apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
+#RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-1/apache-hive-4.0.0-alpha-1-bin.tar.gz
+RUN tar -xvzf apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz
+RUN ln -sf /apache-hive-4.0.0-alpha-2-SNAPSHOT-bin /hive
 
-RUN  wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar
-
+RUN  wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
 RUN apt-get -y install mysql-server mysql-client libmysql-java
      
 RUN  apt-get -y clean all && rm -rf /tmp/* /var/tmp/* 
@@ -63,6 +64,12 @@ COPY yarn-site.xml /conf/yarn-site.xml
 COPY mapred-site.xml /conf/mapred-site.xml
 COPY hive-site.xml /conf/hive-site.xml
 COPY bootstrap.sh /bootstrap.sh
+
+RUN sudo addgroup hadoop
+RUN sudo adduser --ingroup hadoop hadoop
+RUN sudo addgroup hive
+RUN sudo adduser --ingroup hive hive
+RUN sudo usermod -a -G hadoop hive
 
 # HDFS ports
 EXPOSE 1004 1006 8020 9866 9867 9870 9864 50470 9000
