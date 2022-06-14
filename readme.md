@@ -3,7 +3,8 @@ A hive jar is included by default for the build.
 We can build a docker image with a custom hive jar as follow:
 1. Replace hive jar in the directory with your custom jar and rename it to
 apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz
-2. The rest of the steps remain the same.
+2. You may also have to edit bootstap file to update schema version according to you needs.
+3. The rest of the steps remain the same.
 
 ### Build the docker image:
 ```
