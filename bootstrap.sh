@@ -87,5 +87,6 @@ sleep 20
 
 gprn "Start HiveServer2"
 hive/bin/hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
+#hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
 
 sleep 20000
