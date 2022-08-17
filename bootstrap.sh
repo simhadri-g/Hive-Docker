@@ -36,7 +36,7 @@ echo 'export HADOOP_HOME="/hadoop"' >> ~/.bashrc
 rm /hadoop
 ln -sf /hadoop-3.3.1 /hadoop
 
-ln -sf /apache-hive-4.0.0-alpha-2-SNAPSHOT-bin /hive
+ln -sf /apache-hive-4.0.0-alpha-1-bin /hive
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
 cp /conf/hdfs-site.xml /hadoop/etc/hadoop
@@ -77,7 +77,7 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-2
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-1
 
 gprn "Start HMS server"
 hive/bin/hive --service metastore -p  10000 &
