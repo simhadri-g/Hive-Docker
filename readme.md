@@ -33,7 +33,9 @@ Username and password is "hive"
 
 ### To attach a remote debugger edit bootstap.sh
 To attach a debugger use --debug as follows. The remote debugger can be attached on port 8000.
+```
 hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
+```
 
 ### To check the docker logs
 ```aidl
