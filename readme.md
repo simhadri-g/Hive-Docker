@@ -38,5 +38,5 @@ docker logs -t apache-hive-mr
 ```
 ### To stop 
 ```aidl
-docker stop apache-hive-mr
+./stop
 ```
