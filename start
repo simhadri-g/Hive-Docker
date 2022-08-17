@@ -1,4 +1,4 @@
 #!/bin/bash
 
 name="apache-hive-mr"
-docker run  --rm -t --name ${name} --hostname localhost -P -p9866:9866 -p10000:10000 -p10001:10001 -p9000:9000 -p3306:3306 -p50070:50070 -p50030:50030 -it -d apache-hive-mr  /bin/bash -c "/bootstrap.sh >/tmp/boostrap.log"
+docker run  --rm -t --name ${name} --hostname localhost -P -p9866:9866 -p10000:10000 -p10001:10001 -p9000:9000 -p8000:8000 -p3306:3306 -p50070:50070 -p50030:50030 -it -d apache-hive-mr  /bin/bash -c "/bootstrap.sh >/tmp/boostrap.log"
