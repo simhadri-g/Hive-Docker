@@ -1,1 +1,1 @@
-docker build -t apache-hive-mr ./
+docker build  -t apache-hive-mr ./

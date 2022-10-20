@@ -36,7 +36,8 @@ echo 'export HADOOP_HOME="/hadoop"' >> ~/.bashrc
 rm /hadoop
 ln -sf /hadoop-3.3.1 /hadoop
 
-ln -sf /apache-hive-4.0.0-alpha-1-bin /hive
+ln -sf /apache-hive-4.0.0-alpha-2-SNAPSHOT-bin /hive
+
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
 cp /conf/hdfs-site.xml /hadoop/etc/hadoop
@@ -77,10 +78,10 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-1
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-2
 
 gprn "Start HMS server"
-hive/bin/hive --service metastore -p  10000 &
+hive/bin/hive --service metastore -p  10000 --debug &
 
 gprn "Sleep and wait for HMS to be up and running"
 sleep 20
@@ -92,3 +93,4 @@ hive/bin/hive --service hiveserver2 --hiveconf hive.server2.thrift.port=10001 --
 #hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
 
 sleep 20000
+
