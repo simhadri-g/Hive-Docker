@@ -16,10 +16,14 @@ RUN sudo apt-get update
 
 
 RUN apt-get -y install openjdk-8-jdk 
-RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/ /usr/lib/jvm/java-1.8.0
-RUN ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64/ /usr/lib/jvm/java-1.7.0
+#RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/ đ
+#RUN ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64/ /usr/lib/jvm/java-1.7.0
+
+RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-arm64/ /usr/lib/jvm/java-1.8.0
+
 
 RUN apt -y install vim
+RUN apt -y install nano
 RUN apt -y install wget tar sudo rsync
 RUN sudo apt-get update
 RUN sudo apt-get -y install apache2
@@ -31,12 +35,15 @@ RUN ln -sf /hadoop-3.3.1 /hadoop
 
 # replace the path here for local hive jar
 #COPY /<host-machine-path>/apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
-RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-1/apache-hive-4.0.0-alpha-1-bin.tar.gz
-RUN tar -xvzf apache-hive-4.0.0-alpha-1-bin.tar.gz
-RUN ln -sf /apache-hive-4.0.0-alpha-1-bin /hive
+RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
+RUN tar -xvzf apache-hive-4.0.0-alpha-2-bin.tar.gz
+RUN ln -sf /apache-hive-4.0.0-alpha-2-bin /hive
 
-
-RUN  wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
+RUN wget https://archive.apache.org/dist/tez/0.10.2/apache-tez-0.10.2-bin.tar.gz
+RUN tar -xvzf apache-tez-0.10.2-bin.tar.gz
+RUN ln -sf /apache-tez-0.10.2-bin /tez
+    
+RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
 RUN apt-get -y install mysql-server mysql-client libmysql-java
      
 RUN  apt-get -y clean all && rm -rf /tmp/* /var/tmp/* 
@@ -60,9 +67,9 @@ RUN mkdir /conf
 COPY core-site.xml /conf/core-site.xml
 COPY hdfs-site.xml /conf/hdfs-site.xml
 COPY hadoop-env.sh /conf/hadoop-env.sh
-COPY yarn-site.xml /conf/yarn-site.xml
+#COPY yarn-site.xml /conf/yarn-site.xml
 
-COPY mapred-site.xml /conf/mapred-site.xml
+# COPY mapred-site.xml /conf/mapred-site.xml
 COPY hive-site.xml /conf/hive-site.xml
 COPY bootstrap.sh /bootstrap.sh
 

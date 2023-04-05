@@ -56,12 +56,23 @@
         <name>hive.server2.thrift.http.port</name>
         <value>10001</value>
     </property>
-
+    
+    <property>
+        <name>hive.server2.thrift.max.worker.threads</name>
+        <value>1000</value>
+    </property>
 	<property>
         <name>hive.execution.engine</name>
-        <value>mr</value>
+        <value>tez</value>
     </property>
-
+    <property>
+        <name>tez.local.mode</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.tez.exec.inplace.progress</name>
+        <value>false</value>
+    </property>
     <property>
         <name>hive.input.format</name>
         <value>org.apache.hadoop.hive.ql.io.HiveInputFormat</value>

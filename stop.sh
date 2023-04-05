@@ -1,3 +1,3 @@
 #!/bin/bash
-docker stop apache-hive-mr
-docker rmi apache-hive-mr
+docker stop apache-hive-tez
+docker rmi apache-hive-tez

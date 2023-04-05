@@ -17,7 +17,7 @@ apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz
 ```
 ### To login to the docker container and access mysql rdbms
 ```
-docker exec --privileged=true  -it apache-hive-mr  /bin/bash
+docker exec --privileged=true  -it apache-hive-tez  /bin/bash
 >>mysql -u hive -p 
 (password: hive)
 ```
@@ -39,7 +39,7 @@ hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=
 
 ### To check the docker logs
 ```aidl
-docker logs -t apache-hive-mr
+docker logs -t apache-hive-tez
 ```
 ### To stop 
 ```aidl
