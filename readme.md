@@ -1,4 +1,5 @@
 A hive jar is included by default for the build.
+This is for ARM processors.
 
 We can build a docker image with a custom hive jar as follow:
 1. Replace hive jar in the directory with your custom jar and rename it to
