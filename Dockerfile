@@ -35,9 +35,10 @@ RUN ln -sf /hadoop-3.3.1 /hadoop
 
 # replace the path here for local hive jar
 #COPY /<host-machine-path>/apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
-RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
-RUN tar -xvzf apache-hive-4.0.0-alpha-2-bin.tar.gz
-RUN ln -sf /apache-hive-4.0.0-alpha-2-bin /hive
+COPY ./apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz /
+#RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
+RUN tar -xvzf apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz
+RUN ln -sf /apache-hive-4.0.0-beta-1-SNAPSHOT-bin /hive
 
 RUN wget https://archive.apache.org/dist/tez/0.10.2/apache-tez-0.10.2-bin.tar.gz
 RUN tar -xvzf apache-tez-0.10.2-bin.tar.gz

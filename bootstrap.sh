@@ -43,7 +43,7 @@ echo 'export TEZ_CONF_DIR="/hive/conf/"' >> ~/.bashrc
 rm /hadoop
 ln -sf /hadoop-3.3.1 /hadoop
 
-ln -sf /apache-hive-4.0.0-alpha-2-bin /hive
+ln -sf /apache-hive-4.0.0-beta-1-SNAPSHOT-bin /hive
 ln -sf /apache-tez-0.10.2-bin /tez
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
@@ -85,7 +85,7 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-alpha-2
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-beta-1
 
 gprn "Start HMS server"
 hive/bin/hive --service metastore  -p  10000 &
