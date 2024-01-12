@@ -29,7 +29,7 @@ export HADOOP_HOME="/hadoop"
 export HADOOP_ROOT_LOGGER=DEBUG
 export HADOOP_COMMON_LIB_NATIVE_DIR="/hadoop/lib/native"
 export TEZ_HOME="/tez"
-export HADOOP_CLASSPATH=$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_CLASSPATH
+export HADOOP_CLASSPATH=$HADOOP_HOME/share/hadoop/hdfs/*:$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_CLASSPATH
 export TEZ_CONF_DIR=/hive/conf/
 
 ## Add it to bashrc for starting hadoop
@@ -37,13 +37,13 @@ export TEZ_CONF_DIR=/hive/conf/
 echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"' >> ~/.bashrc
 echo 'export HADOOP_HOME="/hadoop"' >> ~/.bashrc
 echo 'export TEZ_HOME="/tez"' >> ~/.bashrc
-echo 'export HADOOP_CLASSPATH="$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_CLASSPATH"' >> ~/.bashrc
+echo 'export HADOOP_CLASSPATH="$HADOOP_CLASSPATH:$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*"' >> ~/.bashrc
 echo 'export TEZ_CONF_DIR="/hive/conf/"' >> ~/.bashrc
 
 rm /hadoop
-ln -sf /hadoop-3.3.1 /hadoop
+ln -sf /hadoop-3.3.6 /hadoop
 
-ln -sf /apache-hive-4.0.0-beta-1-SNAPSHOT-bin /hive
+ln -sf /apache-hive-4.0.0-beta-2-SNAPSHOT-bin /hive
 ln -sf /apache-tez-0.10.2-bin /tez
 
 cp /conf/core-site.xml /hadoop/etc/hadoop
@@ -85,7 +85,7 @@ jps
 
 
 gprn "Set up metastore DB"
-hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-beta-1
+hive/bin/schematool -userName hive -passWord 'hive' -dbType mysql  -initSchemaTo 4.0.0-beta-2
 
 gprn "Start HMS server"
 hive/bin/hive --service metastore  -p  10000 &
@@ -101,6 +101,6 @@ gprn "Start HiveServer2"
 #To attach a debugger use --debug as follows. The remote debugger can be attached on port 8000.
 #hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=mr
 
-hive/bin/hive --service hiveserver2 --debug --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=tez
+hive/bin/hive --service hiveserver2  --hiveconf hive.server2.thrift.port=10001 --hiveconf hive.execution.engine=tez
 
 sleep 20000

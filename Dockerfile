@@ -29,23 +29,34 @@ RUN sudo apt-get update
 RUN sudo apt-get -y install apache2
 RUN sudo apt-get -y install tree
 
-RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
-RUN tar -xvzf hadoop-3.3.1.tar.gz
-RUN ln -sf /hadoop-3.3.1 /hadoop
+RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+RUN tar -xvzf hadoop-3.3.6.tar.gz
+RUN ln -sf /hadoop-3.3.6 /hadoop
 
-# replace the path here for local hive jar
-#COPY /<host-machine-path>/apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
-COPY ./apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz /
-#RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
-RUN tar -xvzf apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz
-RUN ln -sf /apache-hive-4.0.0-beta-1-SNAPSHOT-bin /hive
+# # replace the path here for local hive jar
+# #COPY /<host-machine-path>/apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
+# COPY ./apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz /
+# #RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
+# RUN tar -xvzf apache-hive-4.0.0-beta-1-SNAPSHOT-bin.tar.gz
+# RUN ln -sf /apache-hive-4.0.0-beta-1-SNAPSHOT-bin /hive
 
 RUN wget https://archive.apache.org/dist/tez/0.10.2/apache-tez-0.10.2-bin.tar.gz
 RUN tar -xvzf apache-tez-0.10.2-bin.tar.gz
 RUN ln -sf /apache-tez-0.10.2-bin /tez
-    
+
 RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar
 RUN apt-get -y install mysql-server mysql-client libmysql-java
+
+# replace the path here for local hive jar
+#COPY /<host-machine-path>/apache-hive-4.0.0-alpha-2-SNAPSHOT-bin.tar.gz /
+COPY ./apache-hive-4.0.0-beta-2-SNAPSHOT-bin.tar.gz /
+#RUN wget https://dlcdn.apache.org/hive/hive-4.0.0-beta-1/apache-hive-4.0.0-alpha-2-bin.tar.gz
+RUN tar -xvzf apache-hive-4.0.0-beta-2-SNAPSHOT-bin.tar.gz
+RUN ln -sf /apache-hive-4.0.0-beta-2-SNAPSHOT-bin /hive
+
+
+    
+
      
 RUN  apt-get -y clean all && rm -rf /tmp/* /var/tmp/* 
 
@@ -97,3 +108,6 @@ EXPOSE 3306
 
 # HDFS datnode
 EXPOSE 9866
+
+# debugger
+EXPOSE 8015
