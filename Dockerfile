@@ -19,7 +19,7 @@ RUN apt-get -y install openjdk-8-jdk
 #RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/ đ
 #RUN ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64/ /usr/lib/jvm/java-1.7.0
 
-RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-arm64/ /usr/lib/jvm/java-1.8.0
+RUN ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64/ /usr/lib/jvm/java-1.8.0
 
 
 RUN apt -y install vim

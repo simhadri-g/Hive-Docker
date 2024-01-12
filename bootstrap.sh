@@ -16,8 +16,8 @@ gprn() {
 
 ## Setup ENV variables
 
-## export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+##export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 
 export HDFS_NAMENODE_USER="root"
 export HDFS_SECONDARYNAMENODE_USER="root"
@@ -33,8 +33,8 @@ export HADOOP_CLASSPATH=$HADOOP_HOME/share/hadoop/hdfs/*:$TEZ_HOME/*:$TEZ_HOME/l
 export TEZ_CONF_DIR=/hive/conf/
 
 ## Add it to bashrc for starting hadoop
-## echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"' >> ~/.bashrc
-echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"' >> ~/.bashrc
+echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"' >> ~/.bashrc
+## echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"' >> ~/.bashrc
 echo 'export HADOOP_HOME="/hadoop"' >> ~/.bashrc
 echo 'export TEZ_HOME="/tez"' >> ~/.bashrc
 echo 'export HADOOP_CLASSPATH="$HADOOP_CLASSPATH:$TEZ_HOME/*:$TEZ_HOME/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*"' >> ~/.bashrc
