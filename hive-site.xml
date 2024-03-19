@@ -89,4 +89,8 @@
 		<value>false</value>
 	</property>
 
+    <property>
+        <name>mapreduce.job.counters.max</name>
+        <value>2048</value>
+    </property>
 </configuration>
