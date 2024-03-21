@@ -29,7 +29,7 @@ create external table if not exists store_sales(
 ,     ss_net_profit decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/store_sales'
+location '/user/hive/warehouse/external/tpcdsdata/store_sales'
 ;
 
 -- Table<store_returns (20 cols)  partition=sr_returned_date_sk>
@@ -58,7 +58,7 @@ create external table if not exists store_returns(
 ,     sr_net_loss decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/store_returns'
+location '/user/hive/warehouse/external/tpcdsdata/store_returns'
 ;
 
 -- Table<catalog_sales (34 cols)  partition=cs_sold_date_sk>
@@ -101,7 +101,7 @@ create external table if not exists catalog_sales(
 ,     cs_net_profit decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/catalog_sales'
+location '/user/hive/warehouse/external/tpcdsdata/catalog_sales'
 ;
 
 -- Table<catalog_returns (27 cols)  partition=cr_returned_date_sk>
@@ -137,7 +137,7 @@ create external table if not exists catalog_returns(
 ,     cr_net_loss decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/catalog_returns'
+location '/user/hive/warehouse/external/tpcdsdata/catalog_returns'
 ;
 
 -- Table<web_sales (34 cols)  partition=ws_sold_date_sk>
@@ -180,7 +180,7 @@ create external table if not exists web_sales(
 ,     ws_net_profit decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/web_sales'
+location '/user/hive/warehouse/external/tpcdsdata/web_sales'
 ;
 
 -- Table<web_returns (24 cols)  partition=wr_returned_date_sk>
@@ -213,7 +213,7 @@ create external table if not exists web_returns(
 ,     wr_net_loss decimal(7,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/web_returns'
+location '/user/hive/warehouse/external/tpcdsdata/web_returns'
 ;
 
 -- Table<inventory (4 cols)>
@@ -226,7 +226,7 @@ create external table if not exists inventory(
 ,     inv_quantity_on_hand int
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/inventory';
+location '/user/hive/warehouse/external/tpcdsdata/inventory';
 
 -- Table<store (29 cols)>
 
@@ -263,7 +263,7 @@ create external table if not exists store(
 ,     s_tax_percentage decimal(5,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/store'
+location '/user/hive/warehouse/external/tpcdsdata/store'
 tblproperties ('serialization.null.format'='');
 
 -- Table<call_center (31 cols)>
@@ -303,7 +303,7 @@ create external table if not exists call_center(
 ,     cc_tax_percentage decimal(5,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/call_center'
+location '/user/hive/warehouse/external/tpcdsdata/call_center'
 tblproperties ('serialization.null.format'='');
 
 -- Table<catalog_page (9 cols)>
@@ -321,7 +321,7 @@ create external table if not exists catalog_page(
 ,     cp_type varchar(100)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/catalog_page'
+location '/user/hive/warehouse/external/tpcdsdata/catalog_page'
 tblproperties ('serialization.null.format'='');
 
 -- Table<web_site (26 cols)>
@@ -356,7 +356,7 @@ create external table if not exists web_site(
 ,     web_tax_percentage decimal(5,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/web_site'
+location '/user/hive/warehouse/external/tpcdsdata/web_site'
 tblproperties ('serialization.null.format'='');
 
 -- Table<web_page (14 cols)>
@@ -379,7 +379,7 @@ create external table if not exists web_page(
 ,     wp_max_ad_count int
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/web_page'
+location '/user/hive/warehouse/external/tpcdsdata/web_page'
 tblproperties ('serialization.null.format'='');
 
 -- Table<warehouse (14 cols)>
@@ -402,7 +402,7 @@ create external table if not exists warehouse(
 ,     w_gmt_offset decimal(5,2)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/warehouse'
+location '/user/hive/warehouse/external/tpcdsdata/warehouse'
 tblproperties ('serialization.null.format'='');
 
 -- Table<customer (18 cols)>
@@ -429,7 +429,7 @@ create external table if not exists customer(
 ,     c_last_review_date_sk bigint
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/customer'
+location '/user/hive/warehouse/external/tpcdsdata/customer'
 tblproperties ('serialization.null.format'='');
 
 -- Table<customer_address (13 cols)>
@@ -451,7 +451,7 @@ create external table if not exists customer_address(
 ,     ca_location_type char(20)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/customer_address'
+location '/user/hive/warehouse/external/tpcdsdata/customer_address'
 tblproperties ('serialization.null.format'='');
 
 -- Table<customer_demographics (9 cols)>
@@ -469,7 +469,7 @@ create external table if not exists customer_demographics(
 ,     cd_dep_college_count int
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/customer_demographics'
+location '/user/hive/warehouse/external/tpcdsdata/customer_demographics'
 tblproperties ('serialization.null.format'='');
 
 -- Table<date_dim (28 cols)>
@@ -506,7 +506,7 @@ create external table if not exists date_dim(
 ,     d_current_year char(1)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/date_dim'
+location '/user/hive/warehouse/external/tpcdsdata/date_dim'
 tblproperties ('serialization.null.format'='');
 
 -- Table<household_demographics (5 cols)>
@@ -520,7 +520,7 @@ create external table if not exists household_demographics(
 ,     hd_vehicle_count int
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/household_demographics'
+location '/user/hive/warehouse/external/tpcdsdata/household_demographics'
 tblproperties ('serialization.null.format'='');
 
 -- Table<item (22 cols)>
@@ -551,7 +551,7 @@ create external table if not exists item(
 ,     i_product_name char(50)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/item'
+location '/user/hive/warehouse/external/tpcdsdata/item'
 tblproperties ('serialization.null.format'='');
 
 -- Table<income_band (3 cols)>
@@ -563,7 +563,7 @@ create external table if not exists income_band(
 ,     ib_upper_bound int
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/income_band';
+location '/user/hive/warehouse/external/tpcdsdata/income_band';
 
 -- Table<promotion (19 cols)>
 
@@ -590,7 +590,7 @@ create external table if not exists promotion(
 ,     p_discount_active char(1)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/promotion'
+location '/user/hive/warehouse/external/tpcdsdata/promotion'
 tblproperties ('serialization.null.format'='');
 
 -- Table<reason (3 cols)>
@@ -602,7 +602,7 @@ create external table if not exists reason(
 ,     r_reason_desc char(100)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/reason'
+location '/user/hive/warehouse/external/tpcdsdata/reason'
 tblproperties ('serialization.null.format'='');
 
 -- Table<ship_mode (6 cols)>
@@ -617,7 +617,7 @@ create external table if not exists ship_mode(
 ,     sm_contract char(20)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/ship_mode'
+location '/user/hive/warehouse/external/tpcdsdata/ship_mode'
 tblproperties ('serialization.null.format'='');
 
 -- Table<time_dim (10 cols)>
@@ -636,7 +636,7 @@ create external table if not exists time_dim(
 ,     t_meal_time char(20)
 )
 row format delimited fields terminated by '|'
-location '/tpcds-data/tpcds-data/time_dim'
+location '/user/hive/warehouse/external/tpcdsdata/time_dim'
 tblproperties ('serialization.null.format'='');
 
 
